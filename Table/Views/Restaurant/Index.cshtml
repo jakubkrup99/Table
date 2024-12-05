@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Restaurant>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Opening Hour</th>
+        <th>Closing Hour</th>
+    </tr>
+    @foreach(var restaurant in Model)
+    {
+        <tr>
+            <td>@restaurant.Name</td>
+            <td>@restaurant.Address</td>
+            <td>@restaurant.OpeningHour</td>
+            <td>@restaurant.ClosingHour</td>
+
+        </tr>
+    }
+</table>

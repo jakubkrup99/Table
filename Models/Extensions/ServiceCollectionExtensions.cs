@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Table.DataAccess.Db;
+using Table.DataAccess.Repositories.UnitOfWork;
 
 namespace Table.DataAccess.Extensions
 {
@@ -16,6 +17,8 @@ namespace Table.DataAccess.Extensions
         {
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
+            
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         }
     }

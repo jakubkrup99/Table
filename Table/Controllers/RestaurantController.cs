@@ -1,12 +1,14 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Table.DataAccess.Repositories.UnitOfWork;
 
 namespace Table.Api.Controllers
 {
-    public class RestaurantController : Controller
+    public class RestaurantController(IUnitOfWork unitOfWork) : Controller
     {
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var restaurants = await unitOfWork.Restaurants.GetAllAsync();
+            return View(restaurants);
         }
     }
 }
