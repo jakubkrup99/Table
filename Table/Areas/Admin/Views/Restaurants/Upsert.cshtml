@@ -1,18 +1,49 @@
 @model Restaurant
 
-@{
-    Layout = null;
-}
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <title>title</title>
-</head>
-<body>
-<div>
-      
+<div class="col-10 border p-3 m-4">
+    <h2>@(Model.Id == 0 ? "Stwórz" : "Zaktualizuj") Restauracje</h2>
+    <form method="post">
+        <div class="form-group mb-3">
+            <label asp-for="Name" ></label>
+            <input asp-for="Name" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="City"></label>
+            <input asp-for="City" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="PhoneNumber"></label>
+            <input asp-for="PhoneNumber" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="ImageUrl"></label>
+            <input asp-for="ImageUrl" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="OpeningHour" ></label>
+            <input asp-for="OpeningHour" type="time" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="ClosingHour"></label>
+            <input asp-for="ClosingHour" type="time" class="form-control" />
+        </div>
+        <div class=" d-flex justify-content-end gap-1">
+            <button type="submit" class="btn btn-primary col-3">
+                @(Model.Id == 0 ? "Dodaj" : "Edytuj")
+            </button>
+            <a asp-area="admin" asp-controller="Restaurants" class="btn btn-secondary col-3">
+                Cofnij
+            </a>
+        </div>
+    </form>
 </div>
-</body>
-</html>

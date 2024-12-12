@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Table.DataAccess.Db;
 using Table.DataAccess.Repositories.UnitOfWork;
+using Table.DataAccess.Seed;
 
 namespace Table.DataAccess.Extensions
 {
@@ -19,6 +20,7 @@ namespace Table.DataAccess.Extensions
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
             
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IRestaurantSeeder, RestaurantSeeder>();
 
         }
     }

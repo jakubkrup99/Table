@@ -1,10 +1,13 @@
 ﻿@model IEnumerable<Restaurant>
-<table>
+<div class="d-flex justify-content-end ">
+        <a asp-area="Admin" asp-controller="Restaurants" asp-action="Upsert" class="btn btn-primary">Dodaj</a>
+</div>
+<table class="table">
     <tr>
-        <th>Name</th>
-        <th>Address</th>
-        <th>Opening Hour</th>
-        <th>Closing Hour</th>
+        <th>Nazwa</th>
+        <th>Adres</th>
+        <th>Godzina Otwarcia</th>
+        <th>Godzina Zamkniecia</th>
     </tr>
     @foreach(var restaurant in Model)
     {

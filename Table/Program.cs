@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Table.DataAccess.Db;
 using Table.DataAccess.Extensions;
 using Microsoft.AspNetCore.Identity;
+using Table.DataAccess.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'Default connection' not found.");;
@@ -14,7 +15,18 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructure(builder.Configuration);
 
+// Add razor pages
+builder.Services.AddRazorPages(); 
+
 var app = builder.Build();
+
+//Seed
+using(var scope = app.Services.CreateScope())
+{
+    var seeder = scope.ServiceProvider.GetRequiredService<IRestaurantSeeder>();
+    await seeder.SeedAsync();
+}
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -32,10 +44,10 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
+app.MapRazorPages();
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
+    pattern: "{area=Client}/{controller=Home}/{action=Index}/{id?}")
     .WithStaticAssets();
-
 
 app.Run();
