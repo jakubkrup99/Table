@@ -6,7 +6,7 @@ namespace Table.DataAccess.Repositories.UnitOfWork
     public class UnitOfWork(ApplicationDbContext dbContext) : IUnitOfWork
     {
         public IRestaurantRepository Restaurants { get; } = new RestaurantRepository(dbContext);
-        public async Task Save()
+        public async Task SaveAsync()
         {
             await dbContext.SaveChangesAsync();
         }

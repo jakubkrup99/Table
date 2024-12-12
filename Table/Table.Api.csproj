@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
@@ -18,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Models\Table.DataAccess.csproj" />
+    <ProjectReference Include="..\Table.Dto\Table.Dto.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +27,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="Areas\Client\Data\" />
     <Folder Include="Areas\Client\Models\" />
+    <Folder Include="wwwroot\images\restaurants\" />
   </ItemGroup>
 
 </Project>

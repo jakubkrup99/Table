@@ -1,41 +1,56 @@
-@model Restaurant
+@using Table.Dto.Restaurant
+@model RestaurantOutputDto
 
 
 
-<div class="col-10 border p-3 m-4">
+<div class="col-12 border p-3 m-4 ">
     <h2>@(Model.Id == 0 ? "Stwórz" : "Zaktualizuj") Restauracje</h2>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <div class="form-group mb-3">
-            <label asp-for="Name" ></label>
+            <label asp-for="Name" class="mb-1"></label>
             <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
         </div>
         <div class="form-group mb-3">
-            <label asp-for="Address"></label>
+            <label asp-for="Address" class="mb-1"></label>
             <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+
         </div>
         <div class="form-group mb-3">
-            <label asp-for="City"></label>
+            <label asp-for="City" class="mb-1"></label>
             <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+
         </div>
         <div class="form-group mb-3">
-            <label asp-for="PhoneNumber"></label>
+            <label asp-for="PhoneNumber" class="mb-1"></label>
             <input asp-for="PhoneNumber" class="form-control" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+
         </div>
         <div class="form-group mb-3">
-            <label asp-for="Email"></label>
+            <label asp-for="Email" class="mb-1"></label>
             <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+
         </div>
         <div class="form-group mb-3">
-            <label asp-for="ImageUrl"></label>
-            <input asp-for="ImageUrl" class="form-control" />
+            <label asp-for="ImageUrl" class="mb-1"></label>
+            <input asp-for="ImageUrl" type="file" name="file" class="form-control" />
+
         </div>
         <div class="form-group mb-3">
-            <label asp-for="OpeningHour" ></label>
+            <label asp-for="OpeningHour" class="mb-1"></label>
             <input asp-for="OpeningHour" type="time" class="form-control" />
+            <span asp-validation-for="OpeningHour" class="text-danger"></span>
+
         </div>
         <div class="form-group mb-3">
-            <label asp-for="ClosingHour"></label>
+            <label asp-for="ClosingHour" class="mb-1"></label>
             <input asp-for="ClosingHour" type="time" class="form-control" />
+            <span asp-validation-for="ClosingHour" class="text-danger"></span>
+
         </div>
         <div class=" d-flex justify-content-end gap-1">
             <button type="submit" class="btn btn-primary col-3">
@@ -46,4 +61,10 @@
             </a>
         </div>
     </form>
+
+    @section Scripts {
+        @{
+            <partial name="_ValidationScriptsPartial"/>
+        }
+    }
 </div>

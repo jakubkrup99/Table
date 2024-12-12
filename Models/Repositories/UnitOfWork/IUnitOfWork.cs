@@ -6,6 +6,6 @@ namespace Table.DataAccess.Repositories.UnitOfWork
     public interface IUnitOfWork
     {
         IRestaurantRepository Restaurants { get; }
-        Task Save();
+        Task SaveAsync();
     }
 }
