@@ -1,21 +1,19 @@
 using System.Diagnostics;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Table.DataAccess.Repositories.UnitOfWork;
+using Table.Dto.Restaurant;
 
 namespace Table.Api.Areas.Client.Controllers
 {
     [Area("Client")]
-    public class HomeController : Controller
+    public class HomeController(IUnitOfWork unitOfWork, IMapper mapper) : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public async Task<IActionResult> Index()
         {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
-            return View();
+            var restaurants = await unitOfWork.Restaurants.GetAllAsync();
+            var viewModels = mapper.Map<IEnumerable<RestaurantOutputDto>>(restaurants);
+            return View(viewModels);
         }
 
         public IActionResult Privacy()

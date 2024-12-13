@@ -1,4 +1,3 @@
-@using Table.Dto.Restaurant
 @model RestaurantOutputDto
 <div class="col-12 border p-3 m-4 ">
     <h2>@(Model.Id == 0 ? "Stwórz" : "Zaktualizuj") Restauracje</h2>
@@ -35,17 +34,16 @@
         <div class="form-group mb-3">
             <label asp-for="ImageUrl" class="mb-1"></label>
             <input asp-for="ImageUrl" type="file" name="file" class="form-control" />
-
         </div>
         <div class="form-group mb-3">
             <label asp-for="OpeningHour" class="mb-1"></label>
-            <input asp-for="OpeningHour" type="time" class="form-control" />
+            <input asp-for="OpeningHour" type="time" value="11:00" class="form-control" />
             <span asp-validation-for="OpeningHour" class="text-danger"></span>
 
         </div>
         <div class="form-group mb-3">
             <label asp-for="ClosingHour" class="mb-1"></label>
-            <input asp-for="ClosingHour" type="time" class="form-control" />
+            <input asp-for="ClosingHour" type="time" value="23:00" class="form-control" />
             <span asp-validation-for="ClosingHour" class="text-danger"></span>
 
         </div>
@@ -53,7 +51,7 @@
             <button type="submit" class="btn btn-primary col-3">
                 @(Model.Id == 0 ? "Dodaj" : "Edytuj")
             </button>
-            <a asp-area="admin" asp-controller="Restaurants" class="btn btn-secondary col-3">
+            <a asp-area="admin" asp-controller="Restaurants" asp-action="Index" class="btn btn-secondary col-3">
                 Cofnij
             </a>
         </div>

@@ -24,7 +24,7 @@ namespace Table.Dto.Validation
 
             RuleFor(dto => dto.PhoneNumber)
                 .NotEmpty()
-                .Matches(@"^\d{10}$")
+                .Matches(@"^\d{9}$")
                 .WithMessage("Invalid phone number.");
 
             RuleFor(dto => dto.Email)

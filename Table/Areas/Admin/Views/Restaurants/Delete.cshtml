@@ -1,0 +1,46 @@
+﻿@model RestaurantOutputDto
+<div class="col-12 border p-3 m-4 ">
+    <h2>Usuń Restauracje</h2>
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-group mb-3">
+            <label asp-for="Name" class="mb-1"></label>
+            <input asp-for="Name" disabled class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="Address" class="mb-1"></label>
+            <input asp-for="Address" disabled class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="City" class="mb-1"></label>
+            <input asp-for="City" disabled class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="PhoneNumber" class="mb-1"></label>
+            <input asp-for="PhoneNumber" disabled class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="Email" class="mb-1"></label>
+            <input asp-for="Email" disabled class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="ImageUrl" class="mb-1"></label>
+            <input asp-for="ImageUrl" disabled type="file" name="file" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="OpeningHour" class="mb-1"></label>
+            <input asp-for="OpeningHour" disabled type="time" value="11:00" class="form-control" />
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="ClosingHour" class="mb-1"></label>
+            <input asp-for="ClosingHour" disabled type="time" value="23:00" class="form-control" />
+        </div>
+        <div class=" d-flex justify-content-end gap-1">
+            <button type="submit" class="btn btn-primary col-3">
+                Usuń
+            </button>
+            <a asp-area="admin" asp-controller="Restaurants" asp-action="Index" class="btn btn-secondary col-3">
+                Cofnij
+            </a>
+        </div>
+    </form>
+</div>

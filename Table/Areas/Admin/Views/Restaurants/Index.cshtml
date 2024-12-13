@@ -9,6 +9,7 @@
         <th>Adres</th>
         <th>Godzina Otwarcia</th>
         <th>Godzina Zamkniecia</th>
+        <th></th>
     </tr>
     @foreach(var restaurant in Model)
     {
@@ -17,6 +18,10 @@
             <td>@restaurant.Address</td>
             <td>@restaurant.OpeningHour</td>
             <td>@restaurant.ClosingHour</td>
+            <td>
+                <a asp-area="Admin" asp-controller="Restaurants" asp-action="Upsert" asp-route-id="@restaurant.Id" class="btn btn-secondary">Edytuj</a>
+                <a asp-area="Admin" asp-controller="Restaurants" asp-action="Delete" asp-route-id="@restaurant.Id" class="btn btn-danger">Usuń</a>
+            </td>
 
         </tr>
     }

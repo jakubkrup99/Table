@@ -10,6 +10,7 @@ namespace Table.Api.Profiles
         {
             CreateMap<RestaurantDto, Restaurant>();
             CreateMap<Restaurant, RestaurantOutputDto>();
+            CreateMap<RestaurantDto, RestaurantOutputDto>();
         }
     }
 }
