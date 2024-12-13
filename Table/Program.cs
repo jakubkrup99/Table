@@ -3,6 +3,8 @@ using Table.DataAccess.Db;
 using Table.DataAccess.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Table.DataAccess.Seed;
+using Table.Dto.Validation;
+using FluentValidation;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'Default connection' not found.");;
@@ -15,6 +17,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddValidatorsFromAssemblyContaining<RestaurantValidator>();
 // Add razor pages
 builder.Services.AddRazorPages(); 
 
